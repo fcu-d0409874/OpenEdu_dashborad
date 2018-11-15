@@ -44,3 +44,7 @@
 |引用變數 <br /> ${var[int]} | {{var.int}} |
 | &lt;li>&lt;a href="BeforeSurveyServlet">課前問卷資料</a></li> | &lt;li>&lt;a href="{% url 'BeforeSurveyServlet_instructor'%}">課前問卷資料</a></li> |
 | 引入靜態文件時，如圖片、css檔直接寫入 href="target"，target是目標路徑，由jsp的所在位置直接去搜索 | html開頭必須設置 {% load static %}，"{% static '目標位置' %} |
+
+### url
+
+### view
