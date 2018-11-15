@@ -39,6 +39,6 @@
 | 包含其他的template <br /> <%@ include file='sidebar.html' %>| {% include 'sidebar.html' %} |
 | <c:forEach var="a" items=”b"}> <br />&emsp;.... <br /> </c:forEach>| {% for a in b %} <br /> &emsp; ... <br /> {% endfor %} |
 | <c:set <br /> var="&lt;string>" <br /> value="&lt;string>" <br /> target="&lt;string>" <br /> property="&lt;string>" <br /> scope="&lt;string>"/>  | {% with value as var %}<br />{% endwith %}|
-| <c:if test="&lt;boolean>" var="&lt;string>" scope="&lt;string>"><br />...<br /></c:if> | {% if a %}<br />...<br />{% elif %}<br />...<br />{% else %}<br />...<br />{% endif %} |
-| <c:choose> <br /> <c:when test="&lt;boolean>"> <br /> ... <br /> </c:when> <br /><c:when test="&lt;boolean>"><br /> ... <br /> </c:when><br /> ... <br /> <c:otherwise><br /> ...<br /> </c:otherwise> <br /> </c:choose> | |
+| <c:if test="&lt;boolean>" var="&lt;string>" scope="&lt;string>"><br />&emsp;...<br /></c:if> | {% if a %}<br />&emsp;...<br />{% elif %}<br />&emsp;...<br />{% else %}<br />&emsp;...<br />{% endif %} |
+| <c:choose> <br /> &emsp;<c:when test="&lt;boolean>"> <br />&emsp;&emsp; ... <br /> </c:when> <br /><c:when test="&lt;boolean>"><br />&emsp; ... <br /> </c:when><br /> &emsp;... <br /> <c:otherwise><br /> &emsp;...<br /> </c:otherwise> <br /> </c:choose> | |
   
