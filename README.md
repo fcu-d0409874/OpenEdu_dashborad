@@ -40,5 +40,6 @@
 | <c:forEach var="a" items=”b"}> <br />&emsp;.... <br /> </c:forEach>| {% for a in b %} <br /> &emsp; ... <br /> {% endfor %} |
 | <c:set <br /> var="&lt;string>" <br /> value="&lt;string>" <br /> target="&lt;string>" <br /> property="&lt;string>" <br /> scope="&lt;string>"/>  | {% with value as var %}<br />{% endwith %}|
 | <c:if test="&lt;boolean>" var="&lt;string>" scope="&lt;string>"><br />&emsp;...<br /></c:if> | {% if a %}<br />&emsp;...<br />{% elif %}<br />&emsp;...<br />{% else %}<br />&emsp;...<br />{% endif %} |
-| <c:choose> <br /> &emsp;<c:when test="&lt;boolean>"> <br />&emsp;&emsp; ... <br />&emsp; </c:when> <br />&emsp;<c:when test="&lt;boolean>"><br />&emsp; ... <br />&emsp; </c:when><br /> &emsp;... <br /> <c:otherwise><br /> &emsp;...<br />&emsp; </c:otherwise> <br /> </c:choose> | |
+| <c:choose> <br /> &emsp;<c:when test="&lt;boolean>"> <br />&emsp;&emsp; ... <br />&emsp; </c:when> <br />&emsp;<c:when test="&lt;boolean>"><br />&emsp; ... <br />&emsp; </c:when><br /> &emsp;... <br />&emsp;
+ <c:otherwise><br /> &emsp;...<br />&emsp; </c:otherwise> <br /> </c:choose> | |
   
