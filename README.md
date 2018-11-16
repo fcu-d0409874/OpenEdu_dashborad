@@ -48,3 +48,7 @@
 ### url
 
 ### view
+  django的view是用來將資料傳入templates中的html檔
+| Java | Django  |
+| :------------ |:---------------|
+| 處理request的請求時，是用doGet()、doPost分別去處理GET、與POST| 在view中使用if request.method=='GET': 及 if request.method=='POST':來區分|
