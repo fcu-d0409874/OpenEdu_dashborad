@@ -46,6 +46,7 @@
 | 引入靜態文件時，如圖片、css檔直接寫入 href="target"，target是目標路徑，由jsp的所在位置直接去搜索 | html開頭必須設置 {% load static %}，"{% static '目標位置' %} |
 
 ### url
+ Django的網址設定是在主目錄中的urls.py中設定，import完view後，利用path('xxx/', test_view, name='forExample')即可設定完成
 
 ### view
   django的view是用來將資料傳入templates中的html檔
@@ -53,4 +54,4 @@
 | Java | Django  |
 | :------------ |:---------------|
 | 處理request的請求時，是用doGet()、doPost分別去處理GET、與POST| 在view中使用if request.method=='GET': 及 if request.method=='POST':來區分|
-| 處理資料庫連接時需自行設定大量程式碼，如：<br/>MysqlDataSource mysqlDS = new MysqlDataSource() <br/>protected DataSource getDataSource() <br/>MysqlDataSource mysqlDS = new MysqlDataSource();<br/> mysqlDS.setURL(......) <br/> mysqlDS.setUser(......) <br/> mysqlDS.setPassword(......) <br/> return mysqlDS<br> 隨後在java檔中宣告Connection該類別進行連接 | 在主目錄中的setting.py中設定DATABASES這一dictionary，如下：<br/> 'ForExample': {<br/>&emsp;&emsp;'ENGINE': 'django.db.backends.mysql',<br>&emsp;&emsp;'NAME': 'edxresult',<br>&emsp;&emsp;'USER': 'xxx',<br>&emsp;&emsp;...<br>}<br>之後僅需要在view中import django.db.connections後，再利用with connections['ForExample'].cursor() as cursor:後即可進行連接|使用request.setAttribute('XXX', XX)來設定回傳回jsp的屬性，並且使用<br>RequestDispatcher rd = request.getRequestDispatcher("1_BasicCourseData.jsp")來設定要傳給哪個jsp|可自行宣告一個dictionary來存放要回傳的屬性，如：<br>to_render['test']=123<br?隨後利用<br>return render(request, 'test.html', to_render)來決定傳給哪個html|
+| 處理資料庫連接時需自行設定大量程式碼，如：<br/>MysqlDataSource mysqlDS = new MysqlDataSource() <br/>protected DataSource getDataSource() <br/>MysqlDataSource mysqlDS = new MysqlDataSource();<br/> mysqlDS.setURL(......) <br/> mysqlDS.setUser(......) <br/> mysqlDS.setPassword(......) <br/> return mysqlDS<br> 隨後在java檔中宣告Connection該類別進行連接 | 在主目錄中的setting.py中設定DATABASES這一dictionary，如下：<br/> 'ForExample': {<br/>&emsp;&emsp;'ENGINE': 'django.db.backends.mysql',<br>&emsp;&emsp;'NAME': 'edxresult',<br>&emsp;&emsp;'USER': 'xxx',<br>&emsp;&emsp;...<br>}<br>之後僅需要在view中import django.db.connections後，再利用with connections['ForExample'].cursor() as cursor:後即可進行連接 |
