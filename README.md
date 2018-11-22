@@ -1,4 +1,9 @@
 # OpenEdu_dashborad
+  #### 簡介
+  #### 環境配置
+  #### Django介紹
+  
+
 
 
 # 簡介
