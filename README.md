@@ -2,6 +2,7 @@
 *  [簡介](#簡介)
 *  [配置環境](#配置環境)
 *  [Django介紹](#Django介紹)
+*  [新功能](#新功能)
 
   
 
@@ -82,3 +83,8 @@
 | 處理資料庫連接時需自行設定大量程式碼，如：<br/>MysqlDataSource mysqlDS = new MysqlDataSource() <br/>protected DataSource getDataSource() <br/>MysqlDataSource mysqlDS = new MysqlDataSource();<br/> mysqlDS.setURL(......) <br/> mysqlDS.setUser(......) <br/> mysqlDS.setPassword(......) <br/> return mysqlDS<br> 隨後在java檔中宣告Connection該類別進行連接 | 在主目錄中的setting.py中設定DATABASES這一dictionary，如下：<br/> 'ForExample': {<br/>&emsp;&emsp;'ENGINE': 'django.db.backends.mysql',<br>&emsp;&emsp;'NAME': 'edxresult',<br>&emsp;&emsp;'USER': 'xxx',<br>&emsp;&emsp;...<br>}<br>之後僅需要在view中import django.db.connections後，再利用with connections['test'].cursor() as cursor:後即可進行連接 | 
 | 使用request.setAttribute('XXX', XX)來設定回傳回jsp的屬性，並且使用RequestDispatcher rd = request.getRequestDispatcher("1_BasicCourseData.jsp")來設定要傳給哪個jsp | 可自行宣告一個dictionary來存放要回傳的屬性，如：<br> to_render['test']=123 <br> 隨後利用 return render(request, 'test.html', to_render)來決定傳給哪個html |
 | 若要取得隨著請求一起進來的參數，使用：<br>request.getParameter("mode") | 使用request.GET.get('mode', False) 其中False是當無法取得數值時的默認值 
+
+# 新功能
+
+ 分析熱門課程
+
