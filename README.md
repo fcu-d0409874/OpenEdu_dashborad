@@ -58,6 +58,8 @@
   django版本的html所使用的語法和jsp版本所使用的有些許不同:
   
   Django有所謂的filter，用來在tmeplate使用部分語法操作。 </br>
+  詳細可以參照此網頁:
+https://docs.djangoproject.com/en/2.1/ref/templates/builtins/#std:templatetag-for <>
   而我們所做的更改都大致如下表:
   
   
