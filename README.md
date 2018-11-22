@@ -34,10 +34,17 @@
   如app的配置、database詳細資料的配置、static(靜態檔案如CSS、img)及template(模板html)的位置。
   
   ### Database
-  django支援非常多種的DataBase，而我們選擇使用MySQL5.7版本，在setting.py中設定好資料庫的連線設定後就可以直接連上資料庫提取使用。
-  
+  django支援非常多種的DataBase，而我們選擇使用MySQL5.7版本，在setting.py中設定好資料庫的連線設定後就可以直接連上資料庫提取使用。  <br /><br />
+  除此之外有個重要的點必須說明，使用Django本身的方法去引入資料庫的資料表時，其中的每個資料表都必須設定好主鍵(Primary Key)，否則他在引入的時候會無法判度，因為它是利用PK為基準去做排序抓取資料的。  <br /><br />
+  不過幸好Django本身以Python所編寫的後端程式再引入必要的函式庫之後也支援資料庫的原生語法，例如MySQL的就可以利用以下寫法:<br />
+ 
+    cursor.execute("SELECT database FROM table WHERE condition")
+    
+    
 ### template
   django版本的html所使用的語法和jsp版本所使用的有些許不同:
+  
+  Django有所謂的filter和
   
   
 | JSP | Django  |
@@ -48,7 +55,7 @@
 | <c:if test="&lt;boolean>" var="&lt;string>" scope="&lt;string>"><br />&emsp;...<br /></c:if> | {% if a %}<br />&emsp;...<br />{% elif %}<br />&emsp;...<br />{% else %}<br />&emsp;...<br />{% endif %} |
 | <c:choose> <br /> &emsp;<c:when test="&lt;boolean>"> <br />&emsp;&emsp; ... <br />&emsp; </c:when> <br />&emsp;<c:when test="&lt;boolean>"><br />&emsp; ... <br />&emsp; </c:when><br /> &emsp;... <br />&emsp; <c:otherwise><br /> &emsp;...<br />&emsp; </c:otherwise> <br /> </c:choose> | 沒有這種類似swith case的寫法，所以直接沿用上方的if else來重新編寫達成同樣效果。 |
 |引用變數 <br /> ${var[int]} | {{var.int}} |
-| &lt;li>&lt;a href="BeforeSurveyServlet">課前問卷資料</a></li> | &lt;li>&lt;a href="{% url 'BeforeSurveyServlet_instructor'%}">課前問卷資料</a></li> |
+|在使用超連結時   &lt;li>&lt;a href="BeforeSurveyServlet">課前問卷資料</a></li> | &lt;li>&lt;a href="{% url 'BeforeSurveyServlet'%}">課前問卷資料</a></li> 或是 &lt;li>&lt;a href="/BeforeSurveyServlet>課前問卷資料</a></li>  |
 | 引入靜態文件時，如圖片、css檔直接寫入 href="target"，target是目標路徑，由jsp的所在位置直接去搜索 | html開頭必須設置 {% load static %}，"{% static '目標位置' %} |
 
 ### url
